@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -23,7 +24,13 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { Slider } from "@/components/ui/slider"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Wallet } from "lucide-react"
+import { Logo } from "@/components/logo"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Info } from "lucide-react"
 
 const FREQUENCY_OPTIONS = [
   { value: "monthly", label: "Monthly" },
@@ -73,12 +80,9 @@ export default function NetWorthCalculator() {
     <div className="min-h-screen bg-slate-50 p-4 dark:bg-black">
       <div className="mx-auto max-w-md pt-12">
         <Card className="shadow-lg">
-          <CardHeader className="text-center relative">
-            <div className="absolute right-0 top-0">
-              <ModeToggle />
-            </div>
+          <CardHeader className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <Wallet className="h-6 w-6 text-primary" />
+              <Logo className="h-6 w-6 text-primary" />
             </div>
             <CardTitle className="text-2xl">Passive Income Calculator</CardTitle>
             <CardDescription>
@@ -88,7 +92,18 @@ export default function NetWorthCalculator() {
           <CardContent>
             <FieldGroup className="gap-6">
               <Field>
-                <FieldLabel htmlFor="income">Desired Income</FieldLabel>
+                <div className="flex items-center gap-2">
+                  <FieldLabel htmlFor="income">Desired Income</FieldLabel>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Info className="h-4 w-4 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>How much passive income you want to receive regularly.</p>
+                      <p className="text-xs text-muted-foreground mt-1">This is the amount your investments will pay you</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <div className="flex gap-2">
                   <Input
                     id="income"
@@ -130,7 +145,18 @@ export default function NetWorthCalculator() {
               </Field>
 
               <Field>
-                <FieldLabel>Expected Annual Return</FieldLabel>
+                <div className="flex items-center gap-2">
+                  <FieldLabel>Expected Annual Return</FieldLabel>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Info className="h-4 w-4 text-muted-foreground cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>The average yearly return you expect from your investments.</p>
+                      <p className="text-xs text-muted-foreground mt-1">3-4% for bonds, 6-8% for stocks</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-muted-foreground text-sm">
                     {returnRate[0].toFixed(1)}%
@@ -194,6 +220,14 @@ export default function NetWorthCalculator() {
               )}
             </FieldGroup>
           </CardContent>
+          <CardFooter className="justify-center items-center relative">
+            <p className="text-muted-foreground text-xs text-center flex-1">
+              © {new Date().getFullYear()} Ľubomír Kurčák
+            </p>
+            <div className="absolute right-4">
+              <ModeToggle />
+            </div>
+          </CardFooter>
         </Card>
       </div>
     </div>
