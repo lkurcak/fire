@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Passive Income Calculator",
   description: "Calculate how much you need to invest to achieve your desired passive income",
   icons: {
-    icon: '/favicon.svg',
+    icon: './favicon.svg',
   },
 };
 
