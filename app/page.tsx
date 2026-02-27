@@ -76,7 +76,7 @@ export default function NetWorthCalculator() {
   const selectedFrequencyLabel = FREQUENCY_OPTIONS.find(opt => opt.value === frequency)?.label || "Monthly"
 
   return (
-    <div className="min-h-screen bg-slate-50 p-4 dark:bg-black flex items-center justify-center">
+    <div className="min-h-screen bg-slate-50 p-4 dark:bg-black flex items-center justify-center overflow-hidden">
       <div className="mx-auto max-w-md w-full">
         <Card className="shadow-lg">
           <CardHeader className="text-center">
