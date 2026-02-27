@@ -24,13 +24,12 @@ import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
 import { Slider } from "@/components/ui/slider"
 import { ModeToggle } from "@/components/mode-toggle"
-import { Logo } from "@/components/logo"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { Info } from "lucide-react"
+import { Wallet, Info } from "lucide-react"
 
 const FREQUENCY_OPTIONS = [
   { value: "monthly", label: "Monthly" },
@@ -82,7 +81,7 @@ export default function NetWorthCalculator() {
         <Card className="shadow-lg">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <Logo className="h-6 w-6 text-primary" />
+              <Wallet className="h-6 w-6 text-primary" />
             </div>
             <CardTitle className="text-2xl">Passive Income Calculator</CardTitle>
             <CardDescription>
